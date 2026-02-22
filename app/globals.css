@@ -1,0 +1,444 @@
+/* Google Fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+/* Focus styles */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  @apply ring-2 ring-primary-500 ring-offset-2 ring-offset-white;
+}
+
+/* Selection colors */
+::selection {
+  @apply bg-primary-200 text-primary-900;
+}
+
+/* Component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 focus:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-900 font-medium px-6 py-3 rounded-xl border border-gray-200 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 focus:scale-105;
+  }
+
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 focus:scale-105;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all duration-200 bg-white;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100;
+  }
+
+  .card-hover {
+    @apply hover:scale-105 hover:-translate-y-1;
+  }
+
+  .nav-link {
+    @apply text-gray-600 hover:text-primary-600 font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-gray-50;
+  }
+
+  .nav-link-active {
+    @apply text-primary-600 bg-primary-50 font-semibold;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary-100 text-primary-700;
+  }
+
+  .badge-secondary {
+    @apply bg-gray-100 text-gray-700;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-700;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-700;
+  }
+
+  .badge-error {
+    @apply bg-red-100 text-red-700;
+  }
+
+  .avatar {
+    @apply w-10 h-10 rounded-full flex items-center justify-center font-semibold text-white;
+  }
+
+  .avatar-sm {
+    @apply w-8 h-8 text-sm;
+  }
+
+  .avatar-lg {
+    @apply w-12 h-12 text-lg;
+  }
+
+  .avatar-xl {
+    @apply w-16 h-16 text-xl;
+  }
+
+  .loading-spinner {
+    @apply animate-spin rounded-full border-2 border-gray-300 border-t-primary-600;
+  }
+
+  .skeleton {
+    @apply bg-gray-200 animate-pulse;
+  }
+
+  .skeleton-text {
+    @apply skeleton h-4 rounded;
+  }
+
+  .skeleton-avatar {
+    @apply skeleton w-10 h-10 rounded-full;
+  }
+
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
+  }
+
+  .gradient-border {
+    @apply relative overflow-hidden;
+  }
+
+  .gradient-border::before {
+    @apply absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl;
+    content: '';
+    padding: 1px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+  }
+}
+
+/* Responsive text sizes */
+@layer utilities {
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  /* Dashboard specific utilities */
+  .dashboard-card {
+    @apply bg-white rounded-2xl p-6 shadow-sm border border-gray-100;
+  }
+
+  .stats-card {
+    @apply dashboard-card transition-all duration-200 hover:shadow-lg;
+  }
+
+  /* Mobile navigation spacing */
+  .mobile-safe-area {
+    @apply pb-20 md:pb-0;
+  }
+
+  .action-button {
+    @apply p-4 rounded-xl transition-all duration-200 hover:scale-105 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  .user-avatar {
+    @apply bg-primary-500 rounded-full flex items-center justify-center text-white font-semibold;
+  }
+
+  .dropdown-menu {
+    @apply absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50;
+  }
+
+  .dropdown-item {
+    @apply w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2;
+  }
+
+  .dropdown-item-danger {
+    @apply dropdown-item text-red-600 hover:bg-red-50;
+  }
+
+  .header-nav-link {
+    @apply text-gray-600 hover:text-primary-600 font-medium transition-colors;
+  }
+
+  .header-nav-link-active {
+    @apply text-gray-900 font-semibold;
+  }
+
+  /* Smooth transitions for messaging UI - Requirement 13.1 */
+  .message-fade-in {
+    animation: messageFadeIn 0.2s ease-out;
+  }
+
+  .conversation-slide-in {
+    animation: conversationSlideIn 0.15s ease-out;
+  }
+
+  .smooth-transform {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .hardware-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Optimistic UI feedback - Requirement 13.1 */
+  /* Instant visual feedback for all interactive elements */
+  .instant-feedback {
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .instant-feedback:active {
+    transform: scale(0.97) translateZ(0);
+  }
+
+  .instant-feedback:hover {
+    transform: scale(1.02) translateZ(0);
+  }
+
+  /* Button press effect with hardware acceleration */
+  .button-press {
+    transition: transform 0.05s ease-out, box-shadow 0.05s ease-out;
+    will-change: transform;
+  }
+
+  .button-press:active {
+    transform: scale(0.95) translateZ(0);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .button-press:hover:not(:disabled) {
+    transform: scale(1.05) translateZ(0);
+  }
+
+  /* Ripple effect for primary actions */
+  .ripple-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple-effect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%) translateZ(0);
+    transition: width 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .ripple-effect:active::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+  }
+
+  /* Card press effect for conversation cards */
+  .card-press {
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s ease-out;
+    will-change: transform;
+  }
+
+  .card-press:active {
+    transform: scale(0.98) translateZ(0);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease-out;
+    will-change: transform;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px) translateZ(0);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Prevent layout shifts */
+  .no-layout-shift {
+    contain: layout;
+  }
+
+  .stable-height {
+    min-height: 0;
+    contain: size layout;
+  }
+
+  .stable-width {
+    min-width: 0;
+    contain: size layout;
+  }
+
+  /* Prevent content jumping during loading */
+  .prevent-shift {
+    contain: layout style paint;
+  }
+
+  /* Optimistic state indicators */
+  .optimistic-pending {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .optimistic-success {
+    animation: successPulse 0.3s ease-out;
+  }
+
+  .optimistic-error {
+    animation: errorShake 0.3s ease-out;
+  }
+
+  /* Focus ring with hardware acceleration */
+  .focus-ring {
+    transition: box-shadow 0.15s ease-out;
+    will-change: box-shadow;
+  }
+
+  .focus-ring:focus-visible {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    outline: none;
+  }
+
+  /* Smooth color transitions */
+  .smooth-color {
+    transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  }
+
+  /* Loading state with hardware acceleration */
+  .loading-pulse {
+    animation: loadingPulse 1.5s ease-in-out infinite;
+  }
+}
+
+/* Keyframe animations for 60 FPS performance - all hardware accelerated */
+@keyframes messageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+@keyframes conversationSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0);
+  }
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(1) translateZ(0);
+  }
+  50% {
+    transform: scale(1.05) translateZ(0);
+  }
+  100% {
+    transform: scale(1) translateZ(0);
+  }
+}
+
+@keyframes errorShake {
+  0%, 100% {
+    transform: translateX(0) translateZ(0);
+  }
+  25% {
+    transform: translateX(-5px) translateZ(0);
+  }
+  75% {
+    transform: translateX(5px) translateZ(0);
+  }
+}
+
+@keyframes loadingPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.98) translateZ(0);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .message-fade-in,
+  .conversation-slide-in {
+    animation: none;
+  }
+}
